@@ -27,7 +27,7 @@ GRANT DELETE ANY TABLE TO c##francisco;
 
 
 -- Crear roles
-CREATE ROLE c##rol_instructor;
+CREATE ROLE c##rol_de_instructor;
 CREATE ROLE c##rol_cliente;
 CREATE ROLE c##rol_soporte;
 
