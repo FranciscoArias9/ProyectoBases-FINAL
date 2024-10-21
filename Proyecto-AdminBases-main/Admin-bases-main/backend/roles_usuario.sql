@@ -1,3 +1,31 @@
+-- Crear usuario
+CREATE USER c##francisco IDENTIFIED BY root;
+
+-- Otorgar privilegios para iniciar sesión
+GRANT CREATE SESSION TO c##francisco;
+
+-- Otorgar privilegios para crear tablas
+GRANT CREATE TABLE TO c##francisco;
+
+-- Otorgar privilegios para modificar tablas (incluye ALTER)
+GRANT ALTER ANY TABLE TO c##francisco;
+
+-- Otorgar privilegios para eliminar tablas (incluye DROP)
+GRANT DROP ANY TABLE TO c##francisco;
+
+-- Otorgar privilegios para consultar tablas
+GRANT SELECT ANY TABLE TO c##francisco;
+
+-- Otorgar privilegios para insertar datos
+GRANT INSERT ANY TABLE TO c##francisco;
+
+-- Otorgar privilegios para actualizar datos
+GRANT UPDATE ANY TABLE TO c##francisco;
+
+-- Otorgar privilegios para eliminar datos
+GRANT DELETE ANY TABLE TO c##francisco;
+
+
 -- Crear roles
 CREATE ROLE c##rol_instructor;
 CREATE ROLE c##rol_cliente;
