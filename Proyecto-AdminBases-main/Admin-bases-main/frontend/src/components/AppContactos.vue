@@ -1,9 +1,19 @@
 <template>
-  <h2>Contactenos</h2>
-  <ul>
-    <li>Telefono: +506 88888888</li>
-    <li>Correo electronico: gimnasio@una.cr</li>
-  </ul>
+  <section class="container py-5">
+    <div class="card mx-auto text-center bg-light shadow" style="max-width: 500px; border-radius: 1rem;">
+      <div class="card-body">
+        <h2 class="card-title fw-bold text-uppercase mb-4">Contáctenos</h2>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <i class="fas fa-phone-alt me-2"></i>Teléfono: +506 88888888
+          </li>
+          <li>
+            <i class="fas fa-envelope me-2"></i>Correo electrónico: gimnasio@una.cr
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -11,18 +21,15 @@ export default {
   name: 'AppContacto'
 }
 </script>
+
 <style scoped>
-
-*{
-  margin-bottom: 20px; /* Espacio entre los elementos */
-}
 h2 {
-  text-align: center;
+  color: #333;
 }
-ul {
-  text-align: center; /* Centra el texto del ul */
-  list-style: none;
-  padding: 0;
+.card {
+  border: none;
 }
-
+.card-title {
+  color: #333;
+}
 </style>
