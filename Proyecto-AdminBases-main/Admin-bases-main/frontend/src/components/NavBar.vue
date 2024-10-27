@@ -56,5 +56,20 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos del navbar */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-item {
+  color: white !important;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover,
+.navbar-nav .dropdown-menu .dropdown-item:focus {
+  background-color: rgb(6, 6, 6);
+}
+
+.navbar-nav .dropdown-toggle::after {
+  color: white;
+}
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
 </style>

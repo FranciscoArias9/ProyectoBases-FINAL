@@ -1,17 +1,49 @@
 <template>
-  <div>
-    <h2>Login</h2>
-    <form @submit.prevent="login">
-      <input type="text" v-model="username" placeholder="Usuario" />
-      <input type="password" v-model="password" placeholder="Contraseña" />
-      <button type="submit">Iniciar sesión</button>
-    </form>
-    <p v-if="mensaje">{{ mensaje }}</p>
-  </div>
+  <section class="vh-75">
+    <div class="container py-4 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-4 text-center">
+              <div class="mb-md-4 mt-md-3 pb-4">
+                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                <p class="text-white-50 mb-5">Por favor, iniciar sesión</p>
+                
+                <form @submit.prevent="login">
+                  <div data-mdb-input-init class="form-outline form-white mb-3">
+                    <input type="text" v-model="username" class="form-control form-control-lg" placeholder="Usuario" />
+                  </div>
+                  <div data-mdb-input-init class="form-outline form-white mb-3">
+                    <input type="password" v-model="password" class="form-control form-control-lg" placeholder="Contraseña" />
+                  </div>
+
+                  <p class="small mb-5 pb-lg-2">
+                    <a class="text-white-50" href="#!">Se me olvidó la contraseña</a>
+                  </p>
+                  
+                  <button class="btn btn-outline-light btn-lg px-4" type="submit">Iniciar sesión</button>
+                </form>
+                
+                <p v-if="mensaje" class="text-warning mt-3">{{ mensaje }}</p>
+              </div>
+
+              <div>
+                <p class="mb-0">¿No tienes cuenta?
+                  <router-link to="/servicios/inscripcion" class="text-white-50 fw-bold">Inscribirse</router-link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
+
 
 <script>
 export default {
+  name: 'AppIngreso',
   data() {
     return {
       username: '',
