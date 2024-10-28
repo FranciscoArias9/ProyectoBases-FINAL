@@ -1,23 +1,25 @@
 <template>
-  <h1>cursos</h1>
-  <table>
-    <thead>
-    <tr>
-    <td>ID</td>
-    <td>Descripcion</td>
-    <td>Horario</td>
-    <td>Disponibilidad</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="curso in cursos" :key="curso.id">
-      <td>{{ curso.id }}</td>
-      <td>{{ curso.descripcion }}</td>
-      <td>{{ curso.horario }}</td>
-      <td>{{ curso.disponibilidad }}</td>
-    </tr>
-  </tbody>
-  </table>
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">Cursos</h1>
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Descripción</th>
+          <th>Horario</th>
+          <th>Disponibilidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="curso in cursos" :key="curso.id">
+          <td>{{ curso.id }}</td>
+          <td>{{ curso.descripcion }}</td>
+          <td>{{ curso.horario }}</td>
+          <td>{{ curso.disponibilidad }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>

@@ -1,27 +1,27 @@
 <template>
-    <div class="container">
-      <h2>Agregar Curso</h2>
-      <form @submit.prevent="submitForm">
-        <div class="form-group">
-          <label for="nombre">Nombre del Curso:</label>
-          <input type="text" id="nombre" v-model="curso.nombre" class="form-control" required />
-        </div>
-  
-        <div class="form-group">
-          <label for="descripcion">Descripción:</label>
-          <textarea id="descripcion" v-model="curso.descripcion" class="form-control" required></textarea>
-        </div>
-  
-        <div class="form-group">
-          <label for="horario">Horario:</label>
-          <input type="text" id="horario" v-model="curso.horario" class="form-control" required />
-        </div>
-  
-        <button type="submit" class="btn btn-primary">Agregar Curso</button>
-        <p v-if="mensaje" class="text-success">{{ mensaje }}</p>
-      </form>
-    </div>
-  </template>
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Agregar Curso</h2>
+    <form @submit.prevent="submitForm">
+      <div class="form-group">
+        <label for="nombre">Nombre del Curso:</label>
+        <input type="text" id="nombre" v-model="curso.nombre" class="form-control" required />
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" v-model="curso.descripcion" class="form-control" required></textarea>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="horario">Horario:</label>
+        <input type="text" id="horario" v-model="curso.horario" class="form-control" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3">Agregar Curso</button>
+      <p v-if="mensaje" class="text-success mt-3">{{ mensaje }}</p>
+    </form>
+  </div>
+</template>
   
   <script>
   export default {

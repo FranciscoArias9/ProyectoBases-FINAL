@@ -1,31 +1,33 @@
 <template>
-  <h1>Clientes</h1>
-  <table>
-    <thead>
-      <tr>
-        <td>Cédula</td>
-        <td>Nombre</td>
-        <td>Primer Apellido</td>
-        <td>Segundo Apellido</td>
-        <td>Dirección</td>
-        <td>Email</td>
-        <td>Celular</td>
-        <td>Teléfono de Habitación</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="cliente in clientes" :key="cliente.cedula">
-        <td>{{ cliente.cedula }}</td>
-        <td>{{ cliente.nombre }}</td>
-        <td>{{ cliente.apellido1 }}</td>
-        <td>{{ cliente.apellido2 }}</td>
-        <td>{{ cliente.direccion }}</td>
-        <td>{{ cliente.e_mail }}</td>
-        <td>{{ cliente.celular }}</td>
-        <td>{{ cliente.tel_habitacion }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <h1 class="my-4 text-center">Clientes</h1>
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Cédula</th>
+          <th>Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Segundo Apellido</th>
+          <th>Dirección</th>
+          <th>Email</th>
+          <th>Celular</th>
+          <th>Teléfono de Habitación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="cliente in clientes" :key="cliente.cedula">
+          <td>{{ cliente.cedula }}</td>
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.apellido1 }}</td>
+          <td>{{ cliente.apellido2 }}</td>
+          <td>{{ cliente.direccion }}</td>
+          <td>{{ cliente.e_mail }}</td>
+          <td>{{ cliente.celular }}</td>
+          <td>{{ cliente.tel_habitacion }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
