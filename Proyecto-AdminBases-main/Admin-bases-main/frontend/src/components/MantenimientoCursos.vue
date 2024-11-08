@@ -122,17 +122,19 @@
         this.esEdicion = true; // Cambiar a modo edición
       },
       async eliminarCurso(id_curso) {
-        if (confirm('¿Estás seguro de eliminar este curso?')) {
-          try {
-            await fetch(`http://localhost:3000/api/cursos/${id_curso}`, {
-              method: 'DELETE',
-            });
-            this.obtenerCursos(); // Actualizar la lista de cursos
-          } catch (error) {
-            console.error('Error al eliminar el curso:', error);
-          }
-        }
-      },
+    if (confirm('¿Estás seguro de eliminar este curso?')) {
+      try {
+        await fetch(`http://localhost:3000/api/cursos/${id_curso}`, {
+          method: 'DELETE',
+          credentials: 'include', // Asegura que las cookies de sesión se envíen
+        });
+        this.obtenerCursos(); // Actualizar la lista de cursos
+      } catch (error) {
+        console.error('Error al eliminar el curso:', error);
+      }
+    }
+  }
+,
       resetearFormulario() {
         this.curso = { id_curso: null, descripcion: '', nombre: '', horario: '' };
         this.esEdicion = false;
