@@ -44,6 +44,7 @@ public class DynamicOracleConnection {
     } */
 
     // Método para verificar si el usuario tiene el rol 'C##ROL_DE_INSTRUCTOR' o 'C##ROL_DE_CLIENTE'
+    /* 
     public boolean hasValidRole(Connection connection) throws SQLException {
         String query = "SELECT * FROM user_role_privs WHERE granted_role IN ('C##ROL_DE_INSTRUCTOR', 'C##ROL_DE_CLIENTE')";
         try (Statement stmt = connection.createStatement();
@@ -51,7 +52,7 @@ public class DynamicOracleConnection {
                 System.out.println("HAS VALID LOGRADO");
             return rs.next(); // Si encuentra un resultado, el usuario tiene el rol requerido
         }
-    }
+    } */
 
     // Método para verificar si el usuario tiene el rol 'C##ROL_DE_INSTRUCTOR'
     public boolean hasInstructorRole(Connection connection) throws SQLException {
@@ -69,6 +70,26 @@ public class DynamicOracleConnection {
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             return rs.next(); // Si encuentra un resultado, el usuario tiene el rol de cliente
+        }
+    }
+
+    public boolean hasSoportistaRole(Connection connection) throws SQLException {
+        String query = "SELECT * FROM user_role_privs WHERE granted_role = 'C##ROL_DE_SOPORTISTA'";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            return rs.next(); // Si encuentra un resultado, el usuario tiene el rol de soportista
+        }
+    }
+    
+
+
+    // Método para verificar si el usuario tiene el rol 'C##ROL_DE_INSTRUCTOR' o 'C##ROL_DE_CLIENTE' o 'C##ROL_DE_SOPORTISTA'
+    public boolean hasValidRole(Connection connection) throws SQLException {
+        String query = "SELECT * FROM user_role_privs WHERE granted_role IN ('C##ROL_DE_INSTRUCTOR', 'C##ROL_DE_CLIENTE', 'C##ROL_DE_SOPORTISTA')";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            System.out.println("HAS VALID LOGRADO");
+            return rs.next(); // Si encuentra un resultado, el usuario tiene el rol requerido
         }
     }
 }
