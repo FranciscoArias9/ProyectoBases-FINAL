@@ -45,6 +45,9 @@ public class Cliente {
     //@Column(name = "PASSWORD", nullable = false)
     private String password;
 
+
+    private String estado;  // Añadir este campo
+
     // Constructor vacío (necesario para JPA)
     public Cliente() {
     }
@@ -142,6 +145,16 @@ public class Cliente {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override
