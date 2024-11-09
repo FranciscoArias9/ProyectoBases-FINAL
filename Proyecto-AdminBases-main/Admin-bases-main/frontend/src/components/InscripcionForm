@@ -1,0 +1,55 @@
+<template>
+    <div>
+      <h2>Inscripción de Clientes</h2>
+      <input v-model="busqueda" @input="buscarCliente" placeholder="Buscar cliente por cédula" />
+      <ul>
+        <li v-for="cliente in clientesFiltrados" :key="cliente.cedula">
+          {{ cliente.cedula }} - {{ cliente.nombre }} - Estado: {{ cliente.estado }}
+          <button @click="cambiarEstado(cliente, 'inscrito')">Inscribir</button>
+          <button @click="cambiarEstado(cliente, 'desuscrito')">Desuscribir</button>
+        </li>
+      </ul>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        clientes: [],
+        busqueda: '',
+      };
+    },
+    computed: {
+      clientesFiltrados() {
+        return this.clientes.filter(cliente =>
+          cliente.cedula.toString().includes(this.busqueda)
+        );
+      },
+    },
+    methods: {
+      async obtenerClientes() {
+        const response = await fetch('http://localhost:3000/api/clientes', {
+          method: 'GET',
+          credentials: 'include',
+        });
+        this.clientes = await response.json();
+      },
+      async cambiarEstado(cliente, nuevoEstado) {
+        const response = await fetch(`http://localhost:3000/api/clientes/${cliente.cedula}/estado`, {
+          method: 'PUT',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(nuevoEstado),
+        });
+        if (response.ok) {
+          cliente.estado = nuevoEstado;  // Actualizar localmente el estado
+        }
+      },
+    },
+    mounted() {
+      this.obtenerClientes();
+    },
+  };
+  </script>
+  
