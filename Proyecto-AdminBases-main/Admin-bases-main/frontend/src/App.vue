@@ -1,7 +1,8 @@
 <template>
+  
   <div>
     <NavBar/>
-    <!--<img alt="Vue logo" src="./assets/logo.png">-->
+    <!--<img alt="Vue logo" src="./assets/logo2.png">-->
     <router-view></router-view>
     <!--
     <h1>Conexión con el Servidor Express</h1>
@@ -46,5 +47,7 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: black;
+  background-image: url('@/assets/fondoLogin.jpg');
 }
 </style>

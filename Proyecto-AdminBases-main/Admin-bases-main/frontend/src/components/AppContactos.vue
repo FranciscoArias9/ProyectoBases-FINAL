@@ -1,6 +1,6 @@
 <template>
-  <section class="container py-5">
-    <div class="card mx-auto text-center bg-light shadow" style="max-width: 500px; border-radius: 1rem;">
+  <section class="contacto-section">
+    <div class="card mx-auto text-center shadow contacto-card">
       <div class="card-body">
         <h2 class="card-title fw-bold text-uppercase mb-4">Contáctenos</h2>
         <ul class="list-unstyled">
@@ -18,18 +18,43 @@
 
 <script>
 export default {
-  name: 'AppContacto'
-}
+  name: 'AppContacto',
+};
 </script>
 
 <style scoped>
-h2 {
-  color: #333;
+/* Imagen de fondo para toda la sección */
+.contacto-section {
+  background-image: url('@/assets/contactos.jpg'); /* Aquí puedes reemplazar con tu propia URL de imagen */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Para que ocupe toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.card {
-  border: none;
+
+/* Estilos del cuadro de contacto */
+.contacto-card {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+  color: #ff8c00; /* Texto anaranjado */
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
 }
+
+/* Estilos para el título */
 .card-title {
-  color: #333;
+  color: #ff8c00; /* Color anaranjado */
+}
+
+/* Estilos para la lista de contacto */
+ul {
+  color: white;
+}
+
+ul li i {
+  color: #ff8c00; /* Iconos en anaranjado */
 }
 </style>

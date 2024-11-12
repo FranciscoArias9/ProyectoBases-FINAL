@@ -1,14 +1,20 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-white">Gimnasio</a>
+      <!-- Logo en lugar de "Gimnasio BD" -->
+      <router-link to="/" class="navbar-brand">
+        <img src="@/assets/logo2.png" alt="Gimnasio BD" class="navbar-logo">
+      </router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/" class="nav-link">Inicio</router-link>
+            <router-link to="/" class="nav-link" :class="{ active: isActive('/') }">Inicio</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/contactos" class="nav-link">Contactos</router-link>
+            <router-link to="/contactos" class="nav-link" :class="{ active: isActive('/contactos') }">Contactos</router-link>
           </li>
 
           <!-- Menú desplegable de Mantenimiento -->
@@ -17,16 +23,16 @@
               Mantenimiento
             </a>
             <ul class="dropdown-menu" aria-labelledby="mantenimientoDropdown">
-              <li><router-link to="/clientes/mantenimiento" class="dropdown-item">Mantenimiento de Clientes</router-link></li>
-              <li><router-link to="/maquinas/mantenimiento" class="dropdown-item">Mantenimiento de Máquinas</router-link></li>
-              <li><router-link to="/cursos/mantenimiento" class="dropdown-item">Mantenimiento de Cursos</router-link></li>
-              <li><router-link to="/rutinas/mantenimiento" class="dropdown-item">Mantenimiento de Rutinas</router-link></li>
+              <li><router-link to="/clientes/mantenimiento" class="dropdown-item" :class="{ active: isActive('/clientes/mantenimiento') }">Mantenimiento de Clientes</router-link></li>
+              <li><router-link to="/maquinas/mantenimiento" class="dropdown-item" :class="{ active: isActive('/maquinas/mantenimiento') }">Mantenimiento de Máquinas</router-link></li>
+              <li><router-link to="/cursos/mantenimiento" class="dropdown-item" :class="{ active: isActive('/cursos/mantenimiento') }">Mantenimiento de Cursos</router-link></li>
+              <li><router-link to="/rutinas/mantenimiento" class="dropdown-item" :class="{ active: isActive('/rutinas/mantenimiento') }">Mantenimiento de Rutinas</router-link></li>
             </ul>
           </li>
 
           <!-- Enlace directo a Inscripción de Clientes -->
           <li class="nav-item" v-if="isAuthenticated">
-            <router-link to="/servicios/inscripcion" class="nav-link">Inscripción de Clientes</router-link>
+            <router-link to="/servicios/inscripcion" class="nav-link" :class="{ active: isActive('/servicios/inscripcion') }">Inscripción de Clientes</router-link>
           </li>
 
           <!-- Cerrar sesión -->
@@ -35,7 +41,7 @@
           </li>
 
           <li class="nav-item" v-else>
-            <router-link to="/ingreso" class="nav-link">Ingreso</router-link>
+            <router-link to="/ingreso" class="nav-link" :class="{ active: isActive('/ingreso') }">Ingreso</router-link>
           </li>
         </ul>
       </div>
@@ -59,20 +65,19 @@ export default {
       localStorage.removeItem('authToken');
       this.isAuthenticated = false;
       this.$router.push('/ingreso');
+    },
+    isActive(route) {
+      return this.$route.path === route;
     }
   }
 };
 </script>
 
 <style scoped>
-/* Estilo general de la navbar */
-.navbar {
-  padding: 15px 30px;
-  background-color: #343a40; /* Color oscuro personalizado */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+.navbar-logo {
+  height: 60px; 
 }
 
-/* Logo de la navbar */
 .navbar-brand {
   font-size: 1.5em;
   font-weight: bold;
@@ -86,14 +91,28 @@ export default {
 
 /* Links de la navbar */
 .nav-link {
-  color: #f0f0f0;
+  color: white;
   font-size: 1.1em;
   transition: color 0.3s;
   margin-left: 10px;
 }
 
-.nav-link.active, .nav-link:hover {
-  color: #f57c00;
+.nav-link.active {
+  color: orange; 
+}
+
+.navbar {
+  background-color: #343a40;
+  padding: 15px 30px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5); 
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* Dropdown menu estilo */
@@ -114,12 +133,7 @@ export default {
   color: #ffffff;
 }
 
-/* Botón de toggler */
-.navbar-toggler {
-  border-color: #f57c00;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%2878, 78, 78, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.nav-link:hover {
+  color: orange; 
 }
 </style>
